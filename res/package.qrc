@@ -1,0 +1,34 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>volume1/dc.png</file>
+        <file>volume1/gh.png</file>
+        <file>volume1/icon.ico</file>
+        <file>volume1/iconabout.png</file>
+        <file>volume1/iconcancel.png</file>
+        <file>volume1/iconclose.png</file>
+        <file>volume1/iconedit.png</file>
+        <file>volume1/iconexit.png</file>
+        <file>volume1/iconmark.png</file>
+        <file>volume1/iconminus.png</file>
+        <file>volume1/iconnext.png</file>
+        <file>volume1/iconok.png</file>
+        <file>volume1/iconopen.png</file>
+        <file>volume1/iconplus.png</file>
+        <file>volume1/iconprev.png</file>
+        <file>volume1/iconsave.png</file>
+        <file>volume1/iconsettings.png</file>
+        <file>volume1/icontheme.png</file>
+        <file>volume1/iconview.png</file>
+        <file>volume1/lc.png</file>
+        <file>volume1/planetDefault.png</file>
+        <file>volume1/planetDefault2.png</file>
+        <file>volume1/qt.png</file>
+        <file>volume1/qtc.png</file>
+        <file>volume1/so.png</file>
+        <file>volume1/wd.png</file>
+        <file>volume1/yt.png</file>
+    </qresource>
+    <qresource prefix="/fonts">
+        <file>volume1/venus_uprising.otf</file>
+    </qresource>
+</RCC>

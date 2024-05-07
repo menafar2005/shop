@@ -1,0 +1,14 @@
+# ninja log v5
+6	834	7347145738945132	CMakeFiles/shop_project.dir/product.cpp.obj	128616f80eacda1e
+3	1002	7347145740629608	CMakeFiles/shop_project.dir/main.cpp.obj	728550b159e03f1c
+1003	1128	7347145741464787	shop_project.exe	ba56f82b8a2ddca
+2	48	7337665926158725	CMakeFiles/shop_project.dir/testing.cpp.obj	1eaf84f523da624a
+7	919	7347145739811686	CMakeFiles/shop_project.dir/order.cpp.obj	ab065d45f074a75c
+2	1081	7352963373806677	CMakeFiles/shop_project.dir/product.cpp.obj	128616f80eacda1e
+10	1082	7352963373806677	CMakeFiles/shop_project.dir/order.cpp.obj	ab065d45f074a75c
+6	1226	7352963375241639	CMakeFiles/shop_project.dir/main.cpp.obj	728550b159e03f1c
+2	649	7352963704239877	CMakeFiles/shop_project.dir/test.cpp.obj	36cb4883907bd5c1
+2	49	7352965042820484	CMakeFiles/shop_project.dir/test.cpp.obj	36cb4883907bd5c1
+50	175	7352965043664022	shop_project.exe	842996e2eb1dfad5
+3	1324	7367013299676374	CMakeFiles/shop_project.dir/main.cpp.obj	728550b159e03f1c
+1325	1582	7367013301546645	shop_project.exe	842996e2eb1dfad5

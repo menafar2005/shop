@@ -1,0 +1,3 @@
+D:/my files/university/term2/c++/shop project/cmake-build-debug/CMakeFiles/shop_project.dir
+D:/my files/university/term2/c++/shop project/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/my files/university/term2/c++/shop project/cmake-build-debug/CMakeFiles/rebuild_cache.dir

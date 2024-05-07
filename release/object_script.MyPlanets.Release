@@ -1,0 +1,15 @@
+release/aboutdialog.o
+release/createdialog.o
+release/csvview.o
+release/editdialog.o
+release/main.o
+release/mainwindow.o
+release/sourcedialog.o
+release/qrc_package.o
+release/qrc_demo_package.o
+release/moc_aboutdialog.o
+release/moc_createdialog.o
+release/moc_csvview.o
+release/moc_editdialog.o
+release/moc_mainwindow.o
+release/moc_sourcedialog.o

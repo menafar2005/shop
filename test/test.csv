@@ -1,0 +1,9 @@
+Sun;Star;Yellow dwarf;695345 km;1.98*10^30 kg;0;0;This is a star;5751K;:/img/sun.png
+Venus;Planet;Greenhouse planet;6000 km;4.87*10^24 kg;0;0;538 days;470C;:/img/venus.png
+Earth;Planet;Exoplanet;6371 km;5.96*10^24 kg;1 (Moon);7 500 000 000;365 day;14C;:/img/earth.png
+Mars;Planet;Rocky planet;3400 km;6.42*10^23 kg;2;0;779 days;-61C;:/img/mars.png
+Jupiter;Planet;Gas giant;66000 km;1.89*10^27 kg;79;0;398 days;-145C;:/img/jupiter.png
+Saturn;Planet;Gas giant;54364 km;5.68*10^26 kg;82;0;378 days;134K;:/img/saturn.png
+Uranus;Planet;Gas giant;24973 km;8.69*10^25 kg;27;0;369 days;76K;:/img/uranus.png
+Neptune;Planet;Gas giant;24754 km;1.042*10^26 kg;14;0;367 days;-201C;:/img/neptune.png
+Mercury;Planet;Rocky planet;2439 km;3.34*10^23 kg;0;0;88 days;200C;:/img/mercury.png
