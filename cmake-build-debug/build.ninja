@@ -79,6 +79,12 @@ build CMakeFiles/shop_project.dir/test.cpp.obj: CXX_COMPILER__shop_project_unsca
   OBJECT_DIR = CMakeFiles\shop_project.dir
   OBJECT_FILE_DIR = CMakeFiles\shop_project.dir
 
+build CMakeFiles/shop_project.dir/tempp.cpp.obj: CXX_COMPILER__shop_project_unscanned_Debug D$:/my$ files/university/term2/c++/shop$ project/tempp.cpp || cmake_object_order_depends_target_shop_project
+  DEP_FILE = CMakeFiles\shop_project.dir\tempp.cpp.obj.d
+  FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\shop_project.dir
+  OBJECT_FILE_DIR = CMakeFiles\shop_project.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target shop_project
@@ -87,7 +93,7 @@ build CMakeFiles/shop_project.dir/test.cpp.obj: CXX_COMPILER__shop_project_unsca
 #############################################
 # Link the executable shop_project.exe
 
-build shop_project.exe: CXX_EXECUTABLE_LINKER__shop_project_Debug CMakeFiles/shop_project.dir/main.cpp.obj CMakeFiles/shop_project.dir/product.cpp.obj CMakeFiles/shop_project.dir/testing.cpp.obj CMakeFiles/shop_project.dir/order.cpp.obj CMakeFiles/shop_project.dir/test.cpp.obj
+build shop_project.exe: CXX_EXECUTABLE_LINKER__shop_project_Debug CMakeFiles/shop_project.dir/main.cpp.obj CMakeFiles/shop_project.dir/product.cpp.obj CMakeFiles/shop_project.dir/testing.cpp.obj CMakeFiles/shop_project.dir/order.cpp.obj CMakeFiles/shop_project.dir/test.cpp.obj CMakeFiles/shop_project.dir/tempp.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\shop_project.dir

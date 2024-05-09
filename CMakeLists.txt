@@ -9,4 +9,5 @@ add_executable(shop_project main.cpp
         testing.cpp
         order.cpp
         order.h
-        test.cpp)
+        test.cpp
+        tempp.cpp)
