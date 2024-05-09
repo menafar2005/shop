@@ -1,3 +1,2 @@
-order id,fname,lname,phone,day,month,year,products,total price,discount,final price
-1016,ehsan,nafari,9935232747,12,2,2024,110 * 1 | ,30000000,2000000,28000000
-1017,vahid,mirtorabi,9125423625,3,6,2024,108 * 2 | 109 * 1 | 111 * 3 | ,505000,5000,500000
+
+1000,ehsan,nafari,09935232747,14,2,2024,140 * 1 | ,15000,0,15000

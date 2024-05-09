@@ -12,6 +12,8 @@
 #include <algorithm>
 #include <sstream>
 #include <iomanip>
+#include <ctime>
+#include <filesystem>
 
 class order {
 
@@ -23,6 +25,7 @@ public:
     {
 
         fstream product_file("Product.csv");
+        ofstream temp_file;
         string name2,id2,price2, num2;
         int i=0, new_order_id;
         int order_product_number;
@@ -91,12 +94,12 @@ public:
                     }
                     else if ((num2_int - each_product_quantity) >= 0)
                     {
-                       order_total_price_long += (price2_long * each_product_quantity);
-                       quantity_enough= true;
+                        order_total_price_long += (price2_long * each_product_quantity);
+                        quantity_enough= true;
                         //string each_product_quantity_string = to_string(each_product_quantity);
                         orderPack[i]= order_product_id;
                         orderPack_num[i]= each_product_quantity;
-                       i++;
+                        i++;
 
                         break;
                     }
@@ -116,6 +119,7 @@ public:
                                 orderPack[i]= order_product_id;
                                 orderPack_num[i]= each_product_quantity;
                                 i++;
+
                                 break;
 
                             }
@@ -183,10 +187,20 @@ public:
         order_discount = order_discount_string;
 
         //set id for new order
-        fstream orderId;
-        orderId.open("order_id.txt", ios::in);
-        orderId>>order_id;
-        orderId.close();
+        fstream orderId("order_id.txt");
+
+        if(orderId.good())
+        {
+            orderId.open("order_id.txt", ios::in);
+            orderId>>order_id;
+            orderId.close();
+        }
+        else
+        {
+            order_id=1000;
+        }
+
+
 
         //creating new id for next order
         orderId.open("order_id.txt", ios::out);
@@ -223,17 +237,17 @@ public:
         while (orderFile.good())
         {
 
-                getline(orderFile, orderId, ',');
-                getline(orderFile, fname, ',');
-                getline(orderFile, lname, ',');
-                getline(orderFile, phone_num, ',');
-                getline(orderFile, oday, ',');
-                getline(orderFile, omonth, ',');
-                getline(orderFile, oyear, ',');
-                getline(orderFile, products, ',');
-                getline(orderFile, total_price, ',');
-                getline(orderFile, discount_price, ',');
-                getline(orderFile, final_price);
+            getline(orderFile, orderId, ',');
+            getline(orderFile, fname, ',');
+            getline(orderFile, lname, ',');
+            getline(orderFile, phone_num, ',');
+            getline(orderFile, oday, ',');
+            getline(orderFile, omonth, ',');
+            getline(orderFile, oyear, ',');
+            getline(orderFile, products, ',');
+            getline(orderFile, total_price, ',');
+            getline(orderFile, discount_price, ',');
+            getline(orderFile, final_price);
 
 
             if (enteredID == orderId)
@@ -252,6 +266,202 @@ public:
         }
 
     }
+
+    void see_finance()
+    {
+        int finance_choice;
+        ifstream order_file("Order.csv", ios::app);
+        while (true) {
+            cout<<"1. see default finance report"<<'\n';
+            cout<<"2. see custom finance report"<<'\n';
+            cout<<"3. back to main menu"<<'\n';
+            cout<<"enter your choice: ";
+            cin>>finance_choice;
+            order_file.seekg(0);
+
+            switch (finance_choice)
+            {
+                case 1:
+                {
+                    string order_info, day, month, year, salary;
+                    long final_salary = 0;
+                    static bool is_order_calculated = false;
+
+                    time_t now = time(0);
+                    tm *ltm = localtime(&now);
+
+                    // finding today's date
+                    int end_day = ltm->tm_mday;
+                    int end_month = 1 + ltm->tm_mon;
+                    int end_year = 1900 + ltm->tm_year;
+
+
+                    long end_date_num = ((end_year * 12 * 30) + (end_month * 30) + (end_day));
+                    long start_date_num = end_date_num - 30;
+
+
+
+
+                    while (!order_file.eof())
+                    {
+                        getline(order_file, order_info, ',');
+                        getline(order_file, order_info, ',');
+                        getline(order_file, order_info, ',');
+                        getline(order_file, order_info, ',');
+                        getline(order_file, day, ',');
+                        getline(order_file, month, ',');
+                        getline(order_file, year, ',');
+                        getline(order_file, order_info, ',');
+                        getline(order_file, order_info, ',');
+                        getline(order_file, order_info, ',');
+                        getline(order_file, salary);
+
+                        stringstream ss5(day);
+                        int day_int;
+                        ss5 >> day_int;
+
+                        stringstream ss6(month);
+                        int month_int;
+                        ss6 >> month_int;
+
+                        stringstream ss7(year);
+                        int year_int;
+                        ss7 >> year_int;
+
+                        stringstream ss10(salary);
+                        long salary_long;
+                        ss10 >> salary_long;
+
+                        long order_date_num = ((year_int * 12 * 30) + (month_int * 30) + (day_int));
+                        is_order_calculated = false;
+
+                        if (order_date_num >= start_date_num && order_date_num <= end_date_num && !is_order_calculated)
+                        {
+                            final_salary = salary_long + final_salary;
+                            is_order_calculated= true;
+                        }
+                        else
+                        {
+                            final_salary = final_salary + 0;
+                        }
+                    }
+
+                    stringstream ss11(salary);
+                    long salary_long;
+                    ss11 >> salary_long;
+
+                    if (is_order_calculated)
+                    {
+                        final_salary= final_salary-salary_long;
+                    }
+
+                    cout << "you've earned " << final_salary << " at this period of time." << '\n';
+                }
+
+                    break;
+
+                case 2:
+                {
+                    string order_info, day, month, year, salary;
+                    long final_salary = 0;
+                    static bool is_order_calculated = false;
+
+                    int start_day, start_month, start_year, end_day, end_month, end_year;
+
+                    cout<<"enter start year: "<<'\n';
+                    cin>>start_year;
+                    cout<<"enter start month: "<<'\n';
+                    cin>>start_month;
+                    cout<<"enter start day: "<<'\n';
+                    cin>>start_day;
+                    cout<<"enter end year: "<<'\n';
+                    cin>>end_year;
+                    cout<<"enter end month: "<<'\n';
+                    cin>>end_month;
+                    cout<<"enter end day: "<<'\n';
+                    cin>>end_day;
+
+
+                    long end_date_num = ((end_year * 12 * 30) + (end_month * 30) + (end_day));
+                    long start_date_num = ((start_year * 12 * 30) + (start_month * 30) + (start_day));
+
+
+                    while (!order_file.eof())
+                    {
+                        getline(order_file, order_info, ',');
+                        getline(order_file, order_info, ',');
+                        getline(order_file, order_info, ',');
+                        getline(order_file, order_info, ',');
+                        getline(order_file, day, ',');
+                        getline(order_file, month, ',');
+                        getline(order_file, year, ',');
+                        getline(order_file, order_info, ',');
+                        getline(order_file, order_info, ',');
+                        getline(order_file, order_info, ',');
+                        getline(order_file, salary);
+
+                        stringstream ss5(day);
+                        int day_int;
+                        ss5 >> day_int;
+
+                        stringstream ss6(month);
+                        int month_int;
+                        ss6 >> month_int;
+
+                        stringstream ss7(year);
+                        int year_int;
+                        ss7 >> year_int;
+
+                        stringstream ss10(salary);
+                        long salary_long;
+                        ss10 >> salary_long;
+
+                        long order_date_num = ((year_int * 12 * 30) + (month_int * 30) + (day_int));
+                        is_order_calculated = false;
+
+                        if (order_date_num >= start_date_num && order_date_num <= end_date_num && !is_order_calculated)
+                        {
+                            final_salary = salary_long + final_salary;
+                            is_order_calculated= true;
+                        }
+                        else
+                        {
+                            final_salary = final_salary + 0;
+                        }
+                    }
+
+                    stringstream ss11(salary);
+                    long salary_long;
+                    ss11 >> salary_long;
+
+                    if (is_order_calculated)
+                    {
+                        final_salary= final_salary-salary_long;
+                    }
+
+                    cout << "you've earned " << final_salary << " at this period of time." << '\n';
+                }
+                    break;
+
+                case 3:
+                {
+                    //back to main menu
+                    break;
+                }
+
+                default:
+                    cout << "Invalid choice." << endl;
+            }
+
+            if (finance_choice == 3)
+            {
+                break; // Exit edit menu
+            }
+        }
+
+
+    }
+
 };
 
 

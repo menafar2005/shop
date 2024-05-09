@@ -37,10 +37,18 @@ public:
 
 
         //set id for new product
-        fstream productId;
-        productId.open("product_id.txt", ios::in);
-        productId>>product_id;
-        productId.close();
+        fstream productId("product_id.txt");
+
+        if(productId.good())
+        {
+            productId.open("product_id.txt", ios::in);
+            productId>>product_id;
+            productId.close();
+        }
+        else
+        {
+            product_id=100;
+        }
 
         //creating new id for next product
         productId.open("product_id.txt", ios::out);
@@ -134,27 +142,23 @@ public:
                             // Edit quantity
                         {
                             string new_quantity;
-                            bool edited= false;
                             cout << "enter new quantity: ";
                             cin >> new_quantity;
-                            while (!file2.eof())
+                            while (true)
                             {
                                 getline(file2, name1, ',');
                                 getline(file2, num1, ',');
                                 getline(file2, price1, ',');
                                 getline(file2, id1);
-
+                                if(file2.eof())
+                                    break;
                                 if (id1==entered_id)
                                 {
                                     temp_file<<name1<<","<<new_quantity<<","<<price1<<","<<id1<<endl;
-                                    edited= true;
                                 }
                                 else
                                 {
-                                    if (!edited)
-                                    {
-                                        temp_file << name1 << "," << num1 << "," << price1 << "," << id1 << endl;
-                                    }
+                                    temp_file << name1 << "," << num1 << "," << price1 << "," << id1 << endl;
                                 }
                             }
 

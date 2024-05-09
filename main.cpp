@@ -19,7 +19,7 @@ int main() {
         cout << "2. see product info & edit" << endl;
         cout << "3. add new order" << endl;
         cout << "4. see order" << endl;
-        cout << "5. " << endl;
+        cout << "5. see finance report" << endl;
         cout << "6. Exit" << endl;
         cout << "Enter your choice: ";
         cin >> choice;
@@ -48,7 +48,8 @@ int main() {
 
                 break;
             case 5:
-                //saveToFile();
+                mainOrder.see_finance();
+
                 break;
             case 6:
                 return 0;
